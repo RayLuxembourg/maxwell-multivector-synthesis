@@ -6,16 +6,9 @@
 
 ---
 
-## Abstract 
+## Abstract
 
-Maxwell’s 19‑century electromagnetic theory originally employed quaternions to combine scalar and vector potentials into a single mathematical object. Oliver Heaviside’s subsequent vector reduction facilitated practical computation but obscured deeper symmetry. We revisit Maxwell’s formulation with geometric algebra (GA), replacing outdated terms—*aether* → *quantum vacuum*, *scalar potential* → *gauge‑invariant scalar field*, *quaternion* → *multivector*, *electromagnetic stresses* → *energy–momentum tensor components*. In GA the field bivector $F = \mathbf E + I c \mathbf B$ and the spacetime derivative $\nabla$ compress the four traditional equations into the single relation
-
-$$
-\nabla F = \frac{1}{c\varepsilon_0}
-J,
-$$
-
-where $J = c\rho - \mathbf J$ is the four‑current. Grade projection recovers the familiar vector equations, while a remaining gauge‑invariant scalar term suggests a longitudinal vacuum mode. We derive the field energy–momentum tensor via left‑contraction, show its equivalence to the standard tensor, and map GA objects to differential forms for comparison. Potential experimental probes include modified Aharonov–Bohm interferometry to bound longitudinal‑mode coupling. Our reformulation unifies classical electromagnetism with quantum‑field vocabulary and offers a compact framework for photonic‑qubit simulation and quantum‑vacuum phenomenology.
+Maxwell’s original quaternionic electrodynamics hinted at symmetries later obscured by Heaviside’s vector reformulation. Motivated by quantum‑field insights, we revisit the theory with geometric algebra, translating *aether*→*quantum vacuum*, scalar potential→gauge‑invariant scalar field, quaternion→multivector, and electromagnetic stresses→energy‑momentum tensor. In this language the four classical equations collapse to ∇F = (1/cε₀)J, while left‑contraction recovers the standard stress–energy tensor. Grade projections reproduce Ampère–Maxwell and Faraday laws and expose a surviving scalar component that signals a possible longitudinal mode of the quantum vacuum. The synthesis unifies classical electromagnetism with modern field theory, streamlines photonic‑qubit modelling, and offers interferometric tests for longitudinal electrodynamics.
 
 ---
 
@@ -25,12 +18,14 @@ Maxwell collected decades of experimental insight into an elegant field theory t
 
 ## 2 Notation and Terminology 
 
-| Classical 1873 term        | This paper                                     | Modern textbook analogue               |
-| -------------------------- | ---------------------------------------------- | -------------------------------------- |
-| Aether                     | Quantum vacuum                                 | QFT vacuum state                       |
-| Scalar potential $\phi$    | Gauge‑invariant scalar field $\Phi$            | Longitudinal mode / Stueckelberg field |
-| Quaternion field variables | Multivector (Clifford algebra)                 | Dirac spinor even‑sub‑algebra          |
-| Electromagnetic stresses   | Energy–momentum tensor components $T^{\mu\nu}$ | Stress–energy in GR                    |
+| Classical 1873 term        | This paper                                     | Modern textbook analogue                              |
+| -------------------------- | ---------------------------------------------- | ----------------------------------------------------- |
+| Aether                     | Quantum vacuum                                 | QFT vacuum state                                      |
+| Scalar potential $\phi$    | Gauge‑invariant scalar field $\Phi$            | Longitudinal mode / Stueckelberg field[^stueckelberg] |
+| Quaternion field variables | Multivector (Clifford algebra)                 | Dirac spinor even‑sub‑algebra                         |
+| Electromagnetic stresses   | Energy–momentum tensor components $T^{\mu\nu}$ | Stress–energy in GR                                   |
+
+[^stueckelberg]: In the Stueckelberg mechanism, a scalar compensator field maintains gauge invariance even when the photon acquires a small mass, thereby introducing a physical longitudinal mode.
 
 All equations use metric signature $(+−−−)$ and Gaussian units unless stated.
 
@@ -40,15 +35,11 @@ All equations use metric signature $(+−−−)$ and Gaussian units unless stat
 
 Define the spacetime vector derivative $\nabla = \gamma^{\mu}\partial_{\mu}$. Let the electromagnetic bivector field be
 
-$$
-F = \mathbf E + I c \mathbf B, \qquad I \equiv \gamma^0\gamma^1\gamma^2\gamma^3.
-$$
+$F = \mathbf E + I c \mathbf B, \qquad I \equiv \gamma^0\gamma^1\gamma^2\gamma^3.$
 
 Maxwell’s dynamics become
 
-$$
-\boxed{\;\nabla F = \frac{1}{c\varepsilon_0} J\;}, \qquad J \equiv c\rho - \mathbf J.
-$$
+$\boxed{\;\nabla F = \frac{1}{c\varepsilon_0} J\;}, \qquad J \equiv c\rho - \mathbf J.$
 
 Projecting onto different GA grades reproduces:
 
@@ -59,15 +50,13 @@ Projecting onto different GA grades reproduces:
 
 For any test vector $a$ the canonical stress–energy vector is
 
-$$
-T(a) = \frac{1}{\mu_0} \langle F a \tilde F \rangle_{1},
-$$
+$T(a) = \frac{1}{\mu_0} \langle F a \tilde F \rangle_{1},$
 
 where $\tilde F$ denotes reverse and $\langle\,\rangle_{1}$ grade‑1 projection. Choosing $a = \gamma^{\nu}$ yields
 
-$$
-T^{\mu\nu} = \frac{1}{\mu_0}\bigl(F^{\mu}\!{}_{\rho}F^{\nu\rho} - \tfrac14 g^{\mu\nu}F_{\rho\sigma}F^{\rho\sigma}\bigr),
-$$
+<img width="1778" height="270" alt="image" src="https://github.com/user-attachments/assets/8c26a95b-2383-4f0a-9ebd-f06164ac76c0" />
+
+`$T^{\mu\nu} = \frac{1}{\mu_0}\bigl(F^{\mu}\!{}_{\rho}F^{\nu\rho} - \tfrac14 g^{\mu\nu}F_{\rho\sigma}F^{\rho\sigma}\bigr),$`
 
 matching the familiar tensor and satisfying $\partial_{\mu}T^{\mu\nu}=0$.
 
@@ -75,9 +64,7 @@ matching the familiar tensor and satisfying $\partial_{\mu}T^{\mu\nu}=0$.
 
 The 2‑form $\boldsymbol F$ and its Hodge dual $*\boldsymbol F$ obey
 
-$$
-\mathrm d \boldsymbol F = 0, \qquad \mathrm d *\boldsymbol F = *\boldsymbol J.
-$$
+$\mathrm d \boldsymbol F = 0, \qquad \mathrm d *\boldsymbol F = *\boldsymbol J.$
 
 GA maps as: bivector $F$ ↔ 2‑form $\boldsymbol F$, pseudoscalar $I$ implements the Hodge star, and $\nabla$ plays the role of exterior derivative $\mathrm d$. Thus GA offers the same economy while keeping scalars, vectors and tensors in a single algebraic object.
 
@@ -88,13 +75,13 @@ GA maps as: bivector $F$ ↔ 2‑form $\boldsymbol F$, pseudoscalar $I$ implemen
 
 ## 6 Applications and Experimental Tests 
 
-| Area                   | GA advantage                                                                  | Test / Constraint                                  |      |                    |    |
-| ---------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------- | ---- | ------------------ | -- |
-| Photonic qubits        | Single algebra for spin & orbit modes                                         | Simulate EM gates on qubit photonics hardware \[8] |      |                    |    |
-| Longitudinal EM search | Modified Aharonov–Bohm ring with source‑free $\mathbf B=0$ but varying $\Phi$ | Bound (                                            | \Phi | <10^{−15},\text{V} | \$ |
-| Metamaterials          | GA handles anisotropic response naturally                                     | Retrieve $F$ from full‑wave data                   |      |                    |    |
+| Area                   | GA advantage                                                                    | Test / Constraint                                  |      |                        |
+| ---------------------- | ------------------------------------------------------------------------------- | -------------------------------------------------- | ---- | ---------------------- |
+| Photonic qubits        | Single algebra for spin & orbit modes                                           | Simulate EM gates on qubit photonics hardware \[8] |      |                        |
+| Longitudinal EM search | Modified Aharonov–Bohm ring with source‑free $\mathbf B = 0$ but varying $\Phi$ | Bound (                                            | $\Phi$ | $\lt 10^{-15},\text{V})$ |
+| Metamaterials          | GA handles anisotropic response naturally                                       | Retrieve $F$ from full‑wave data                   |      |                        |
 
-Vacuum‑energy extraction remains speculative and is omitted here as no credible protocol yet avoids thermodynamic constraints \[9].
+While Casimir‑related vacuum energy is experimentally verified, proposals to harness it for usable power (i.e., over‑unity extraction) remain speculative and are omitted here, as no credible protocol yet circumvents thermodynamic constraints \[9].
 
 ## 7 Conclusion 
 
@@ -102,14 +89,22 @@ Casting Maxwell in geometric algebra with updated quantum‑vacuum language comp
 
 ---
 
-## References 
+## References
 
-\[1] J. C. Maxwell, *A Treatise on Electricity and Magnetism*, Vol. 1–2, 3rd ed., Oxford UP, 1892. 
-\[2] O. Heaviside, *Electrical Papers*, Vol. 1, Macmillan, 1893. 
-\[3] A. A. Michelson and E. W. Morley, “On the Relative Motion of the Earth and the Luminiferous Ether,” *Am. J. Sci.* **34** (1887) 333–345. 
-\[4] H. B. G. Casimir, “On the Attraction Between Two Perfectly Conducting Plates,” *Proc. Kon. Ned. Akad. Wet.* **51** (1948) 793–795. 
-\[5] W. E. Lamb and R. C. Retherford, “Fine Structure of the Hydrogen Atom by a Microwave Method,” *Phys. Rev.* **72** (1947) 241–243. 
-\[6] D. Hestenes, *Oersted Medal Lecture 2003: Reforming the Mathematical Language of Physics*, *Am. J. Phys.* **71** (2003) 104–121. 
-\[7] A. S. Goldhaber and M. M. Nieto, “Photon and Graviton Mass Limits,” *Rev. Mod. Phys.* **82** (2010) 939–979. 
-\[8] J. Wang *et al.*, “Integrated Photonic Quantum Technologies,” *Nat. Photonics* **14** (2020) 273–284. 
-\[9] C. M. Bender and S. A. Fulling, “Zero‑Point Energy: Vacuum State Myth and Fact,” *Phys. Rev. D* **102** (2020) 085013.
+\[1] J. C. Maxwell, *A Treatise on Electricity and Magnetism*, 3rd ed. (Oxford University Press, Oxford, 1892), Vols. 1–2.
+
+\[2] O. Heaviside, *Electrical Papers* (Macmillan, London, 1893), Vol. 1.
+
+\[3] A. A. Michelson and E. W. Morley, Am. J. Sci. **34**, 333 (1887).
+
+\[4] H. B. G. Casimir, Proc. K. Ned. Akad. Wet. **51**, 793 (1948).
+
+\[5] W. E. Lamb and R. C. Retherford, Phys. Rev. **72**, 241 (1947).
+
+\[6] D. Hestenes, Am. J. Phys. **71**, 104 (2003).
+
+\[7] A. S. Goldhaber and M. M. Nieto, Rev. Mod. Phys. **82**, 939 (2010).
+
+\[8] J. Wang *et al.*, Nat. Photonics **14**, 273 (2020).
+
+\[9] C. M. Bender and S. A. Fulling, Phys. Rev. D **102**, 085013 (2020).
